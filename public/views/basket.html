@@ -1,0 +1,40 @@
+<div class="text-center">
+<table id="basket-table" class="table table-bordered">
+    <thead>
+        <tr>
+            <th colspan="2">Product</th>
+            <th>Qty</th>
+            <th>Unit Price</th>
+            <th>Total Price</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="i in products">
+
+            <td>{{i.name}}</td>
+            <td>{{i.description}}</td>
+            <td>{{i.qty}}</td>
+            <td>{{i.price|currency}}</td>
+            <td>{{(i.unitprice)|currency}}</td>
+            <td><i class="fa fa-remove" style="color: red;" ng-click="remoteItem(i.id)"></i></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right">Total</td>
+
+            <td colspan="4">{{sum|currency}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+    <div class="col-sm-12">
+        <a href="/" class="btn btn-primary pull -left"> Continue Shopping</a>
+
+        <div class="pull-right">
+
+            <a ng-click="clearAll()" class="btn btn-danger pull -left">Clear Shopping Cart</a>
+            <a href="/#/order" class="btn btn-success pull -left">Proceed to Checkout</a>
+
+        </div>
+    </div>
+

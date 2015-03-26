@@ -1,0 +1,66 @@
+<div class="text-center">
+
+<h1><i class="fa fa-list-alt "></i>&nbsp;Delivery Orders </h1>
+
+
+    <label class="badge pull-right">{{date| date:'MMM d, y h:mm:ss a'}}</label>
+<table id="basket-table" class="table table-bordered">
+    <thead>
+        <tr>
+
+            <th >Tracking ID</th>
+            <th>Created On </th>
+            <th>Current Status</th>
+            <th >Address</th>
+            <th>Delivery Person</th>
+            <th>Assign</th>
+            <th>Barcode</th>
+            <th>Track</th>
+            <th>Show</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="i in orders|orderBy:'-created_on' ">
+
+
+            <td>{{i._id}}</td>
+            <td>{{i.created_on|date:'MMM d, y h:mm:ss a'}}</td>
+             <td>{{i.shipping.tracking.status}}</td>
+            <td>{{i.shipping.address}}</td>
+            <td >
+
+                <div >
+
+                <select name="" id="" ng-model="i.shipping.tracking.deliveryperson"  class="form-control">
+                <option value="111111">John Doe</option>
+                <option value="333333">Freddie Mercury</option>
+                <option value="444444">Frank Sinatra</option>
+            </select>
+                </div>
+
+              </td>
+              <td>
+                <a class="btn  btn-success" ng-click="assign(i._id,i.shipping.tracking.deliveryperson)"><i class="fa fa-arrow-circle-o-right"></i></a>
+              </td>
+            </td>
+            <td ><a class="btn btn-default" ng-click="toggle=!toggle" ng-init="toggle=false;" ng-show="!toggle">Show</a>
+                <a class="btn btn-default" ng-click="toggle=!toggle" ng-show="toggle">Hide</a>
+                <img  ng-show="toggle" src="{{i.shipping.barcode.filepath}}" alt="" style="width:400px; height:100px;"/></td>
+            
+            <td>
+
+                <a href="{{i.track}}" class="btn btn-danger"> Track</a>
+
+                
+            </td>
+            <td> <a href="{{i.url}}" class="btn btn-primary"> Show</a>
+
+            </td>
+
+
+
+        </tr>
+
+    </tbody>
+</table>
+</div>

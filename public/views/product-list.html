@@ -1,0 +1,19 @@
+<h1>Mobile Phones:</h1>
+<div class="col-sm-4" data-ng-repeat="i in products">
+    <form name="buyform" novalidate="">
+        <a href="/product/{{i._id}}">
+            <img src="{{i.image}}" alt="A horse" style="width:100%">
+        </a>
+        <p><b>{{i.name}} </b></p>
+        <p>{{i.description}}</p>
+
+            <select required="" ng-model="qty">
+                <option value="">Qty</option>
+                <option data-ng-repeat="j in [1,2,3,4,5,6,7,8,9,10]">{{j}}</option>
+            </select>
+
+        <input type="button" class="btn btn-primary" value="Add to cart" ng-click="addtocart(i._id,qty)"
+                   ng-disabled="buyform.$invalid" />
+
+    </form>
+</div>

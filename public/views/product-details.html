@@ -1,0 +1,22 @@
+<form name="buyform" novalidate="">
+    <div class="row">
+        <div class="col-md-7">
+            <img src="{{product.image}}" alt="A horse" style="width:100%;" />
+        </div>
+        <div class="col-md-5">
+            <h1>{{product.name}}</h1>
+            <hr/>
+            <p>{{product.description}}</p>
+            <hr/>
+            <select required="">
+                <option value="" disabled>Qty</option>
+                <option data-ng-repeat="i in [1,2,3,4,5,6,7,8,9,10]">{{i}}</option>
+            </select>
+
+
+            <input type="button"
+                   class="btn btn-primary" ng-disabled="buyform.$invalid"
+                   value="Add to cart" ng-click="addToBasket(product)" />
+        </div>
+    </div>
+</form> 
